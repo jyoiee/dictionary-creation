@@ -4,15 +4,25 @@ def insertMeaning(meaningDict):
     print("In insertMeaning method")
     try:
         conn = MongoClient("mongodb://localhost:27017/")
-        print("Connected Successfully...")
     except:
         print("Connection Failed")
 
+    db = conn.english_dictionary
+    collection = db.dictionary
+    try:
+        meaning = {}
+        for k, v in meaningDict.items():
+            if k == "word":
+                meaning["_id"] = v
+            else:
+                meaning[k] = v
+        collection.insert_one(meaning)
+        print("Meaning Inserted successfully for ", meaningDict["word"])
+        conn.close()
+    except Exception as e:
+        print("Exception Message :: ", e)
+        conn.close()
 
-    meaning = {}
-    # print(meaningDict)
-    for k,v in meaningDict.items():
-        meaning[k] = v
-    print(meaning['meaning']['adverb'][0])
-    print("Type of meaning :: ", type(meaning))
+
+
 

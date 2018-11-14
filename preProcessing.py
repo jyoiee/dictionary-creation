@@ -1,9 +1,10 @@
 import re
-import fetchMeaning
+from fetchMeaning import fetchWordMeaning
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-def passWord(filtered_words):
-    fetchMeaning.fetchWordMeaning("off")
+def passingWord(filtered_words):
+    for word in filtered_words:
+        fetchWordMeaning(word)
 
 def getWordsList():
     file = open("D:/Jyoti-backup/python-project_folders/dictionaryApp/input.txt", "r")
@@ -49,9 +50,9 @@ def getWordsList():
         m = p.match(word)
         if not m:
             filtered_words.append(word)
-    passWord(filtered_words)
+    passingWord(filtered_words)
 
-getWordsList()
+
 
 
 
