@@ -1,5 +1,7 @@
 import json
 from pymongo import MongoClient
+
+a = 0
 def insertMeaning(meaningDict):
     print("In insertMeaning method")
     try:
@@ -17,6 +19,9 @@ def insertMeaning(meaningDict):
             else:
                 meaning[k] = v
         collection.insert_one(meaning)
+        global a
+        a = a + 1
+        print(a)
         print("Meaning Inserted successfully for ", meaningDict["word"])
         conn.close()
     except Exception as e:
