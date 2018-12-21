@@ -26,7 +26,7 @@ def passingWord(filtered_words):
 
 def getWordsList():
     # to read words from url
-    url = "http://www.fullbooks.com/The-Enormous-Room3.html"
+    url = "http://www.fullbooks.com/Entire-PG-Edition-of-The-Works-of-William33.html"
     try:
         resp = req.get(url)
     except Exception as e:

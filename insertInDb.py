@@ -13,16 +13,16 @@ def insertMeaning(meaningDict):
     collection = db.dictionary
     try:
         meaning = {}
-        for k, v in meaningDict.items():
+        for k, v in meaningDict[0].items():
             if k == "word":
                 meaning["_id"] = v
             else:
                 meaning[k] = v
         collection.insert_one(meaning)
+        # print("Meaning Inserted successfully for ", meaningDict["word"])
         global a
         a = a + 1
         print(a)
-        print("Meaning Inserted successfully for ", meaningDict["word"])
         conn.close()
     except Exception as e:
         print("Exception Message :: ", e)
