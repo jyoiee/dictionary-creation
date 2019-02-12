@@ -3,7 +3,6 @@ from pymongo import MongoClient
 
 a = 0
 def insertMeaning(meaningDict):
-    print("In insertMeaning method")
     try:
         conn = MongoClient("mongodb://localhost:27017/")
     except:

@@ -8,6 +8,7 @@ def generate_stem_map(wordlist):
     stem_map = defaultdict(list)
     for word in wordlist:
         stem = STEMMER.stem(word)
+        print("$$$ ::",stem)
         # we don’t have to store words that stem to themselves:
         if stem == word:
             continue
